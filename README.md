@@ -4,9 +4,9 @@ a report engine perfect fit for programmers.
 
 -
 
-use groovy language;
+leverage groovy language;
 
-support DSL;
+fantastic DSL support;
 
 strong formula/function support;
 
