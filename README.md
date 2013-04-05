@@ -6,7 +6,7 @@ a report engine perfect fit for programmers.
 
 leverage groovy language;
 
-fantastic DSL support;
+DSL support;
 
 strong formula/function support;
 
@@ -18,3 +18,5 @@ highly flexible, extensible...
 
 
 IN PROGRESS...
+
+（正在整理Demo，文档）
