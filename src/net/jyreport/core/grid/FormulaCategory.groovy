@@ -10,48 +10,48 @@ import net.jyreport.core.*
 class FormulaCategory {
 	
 	def sum(String dim, values, iparams=null){
-        if(iparams==null){
-            values.sum{v([(dim):it])}
-        }else{
-            values.sum{v(iparams+[(dim):it])}
-        }
+		if(iparams==null){
+			values.sum{v([(dim):it])}
+		}else{
+			values.sum{v(iparams+[(dim):it])}
+		}
 	}
 	
 	def sumWithMinus(String dim, values, minusValues, iparams=null){
-        if(iparams==null){
-		    sum(dim,values) - sum(dim,minusValues)
-        }else{
-            values.sum{v(iparams+[(dim):it])} - minusValues.sum{v(iparams+[(dim):it])}
-        }
+		if(iparams==null){
+			sum(dim,values) - sum(dim,minusValues)
+		}else{
+			values.sum{v(iparams+[(dim):it])} - minusValues.sum{v(iparams+[(dim):it])}
+		}
 	}
 	
 	def sum0(String dim, values, iparams){
-        if(iparams==null){
-            values.sum{v0([(dim):it])}
-        }else{
-            values.sum{v0(iparams+[(dim):it])}
-        }
+		if(iparams==null){
+			values.sum{v0([(dim):it])}
+		}else{
+			values.sum{v0(iparams+[(dim):it])}
+		}
 	}
 	
 	def sumWithMinus0(String dim, values, minusValues, iparams){
-        if(iparams==null){
-		    sum0(dim,values) - sum0(dim,minusValues)
-        }else{
-            values.sum{v0(iparams+[(dim):it])} - minusValues.sum{v0(iparams+[(dim):it])}
-        }
+		if(iparams==null){
+			sum0(dim,values) - sum0(dim,minusValues)
+		}else{
+			values.sum{v0(iparams+[(dim):it])} - minusValues.sum{v0(iparams+[(dim):it])}
+		}
 	}
 
 	def sumChildren(){
 		children?.grep{!it.derived}?.sum() ?: 0.0
 	}
 
-    def sumLeftAll(){
-        (0..<col).sum{colAbs(it)}
-    }
+	def sumLeftAll(){
+		(0..<col).sum{colAbs(it)}
+	}
 
-    def sumHigherAll(){
-        (0..<row).sum{rowAbs(it)}
-    }
+	def sumHigherAll(){
+		(0..<row).sum{rowAbs(it)}
+	}
 	
 	//取上期末日期
 	Date lastTermDate(frequency,date){

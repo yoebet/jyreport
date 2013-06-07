@@ -9,6 +9,6 @@ interface HeadProcessor {
 	
 	List<Head> expand()
 
-    void close()
+	void close()
 }
 

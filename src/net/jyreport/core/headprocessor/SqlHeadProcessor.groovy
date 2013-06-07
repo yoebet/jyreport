@@ -15,9 +15,9 @@ class SqlHeadProcessor extends AbstractHeadProcessor {
 
 	def initialize(){
 		super.initialize()
-        if(sql==null && config.dataSource){
-		    sql=new Sql(config.dataSource)
-        }
+		if(sql==null && config.dataSource){
+			sql=new Sql(config.dataSource)
+		}
 		nameStrategy=dimension.nameStrategy ?: config.nameStrategy
 		if(nameStrategy instanceof Class){
 			nameStrategy=nameStrategy.newInstance()

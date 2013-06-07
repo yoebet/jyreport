@@ -45,7 +45,7 @@ class ReportBuilder extends BaseBuilder {
 	//dimensions,dataRequests,headCriterias,derivedHeads,dataGrids
 	//dataRequest,applyGrids,selectorBuilder,selector
 
-    protected void setClosureDelegate(Closure closure, Object node) {
+	protected void setClosureDelegate(Closure closure, Object node) {
 		def del
 		switch(node){
 			case Dimension:
@@ -75,11 +75,11 @@ class ReportBuilder extends BaseBuilder {
 		del.nameRegistrar=this.nameRegistrar
 		closure.resolveStrategy=Closure.DELEGATE_FIRST
 		closure.setDelegate(del)
-    }
+	}
 	
 	Map dimensionAlias=[:]
 	
-    protected Object doCreateNode(Object name, Map attributes, Object value){
+	protected Object doCreateNode(Object name, Map attributes, Object value){
 		def node=name
 		switch(current){
 			case null:
@@ -375,14 +375,14 @@ class ReportBuilder extends BaseBuilder {
 			logUnknownName(name,value)
 		}
 		node
-    }
+	}
 	
-    protected void nodeCompleted(Object parent, Object node) {
+	protected void nodeCompleted(Object parent, Object node) {
 		if(node==combinedSelectorBuilder){
 			selector=combinedSelectorBuilder.result
 		}else if(node=='applyGrids'){
 			report.dataGrids[selector]=templateGrid
 		}
-    }
+	}
 }
 

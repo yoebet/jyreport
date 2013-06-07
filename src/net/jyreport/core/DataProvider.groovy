@@ -9,6 +9,6 @@ interface DataProvider {
 	
 	TableDataModel selectData()
 
-    void close()
+	void close()
 }
 

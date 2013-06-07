@@ -22,8 +22,8 @@ class NameStrategyBuilder extends BaseBuilder {
 		nameStrategy.fieldToProperty=ftp
 	}
 	
-    protected Object doCreateNode(Object name, Map attributes, Object value){
+	protected Object doCreateNode(Object name, Map attributes, Object value){
 		logUnknownName(name,value)
 		name
-    }
+	}
 }

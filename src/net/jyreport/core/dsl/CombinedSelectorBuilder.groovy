@@ -22,7 +22,7 @@ class CombinedSelectorBuilder extends BaseBuilder {
 		selectors=[]
 	}
 
-    protected void setClosureDelegate(Closure closure, Object node) {
+	protected void setClosureDelegate(Closure closure, Object node) {
 		def del
 		if(node==combineBuilder){
 			del=combineBuilder
@@ -34,9 +34,9 @@ class CombinedSelectorBuilder extends BaseBuilder {
 		}
 		closure.resolveStrategy=Closure.DELEGATE_FIRST
 		closure.setDelegate(del)
-    }
+	}
 	
-    protected Object doCreateNode(Object name, Map attributes, Object value){
+	protected Object doCreateNode(Object name, Map attributes, Object value){
 		def node=name
 		switch(name){
 			case 'select':
@@ -76,15 +76,15 @@ class CombinedSelectorBuilder extends BaseBuilder {
 			logUnknownName(name,value)
 		}
 		node
-    }
+	}
 	
-    protected void nodeCompleted(Object parent, Object node) {
+	protected void nodeCompleted(Object parent, Object node) {
 		if(node==combineBuilder){
 			selectors << combineBuilder.result
 		}
-    }
+	}
 	
-    Selector getResult() {
+	Selector getResult() {
 		if(selectors?.size()==0){
 			log "no selector!"
 		}

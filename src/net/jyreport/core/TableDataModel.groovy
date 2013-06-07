@@ -78,7 +78,7 @@ class TableDataModel implements Cloneable {
 		//println "get: $params"
 		
 		params-=implitParams
-        params.remove('dataRequest')
+		params.remove('dataRequest')
 		
 		if(params.size()==dimensions.size()){
 			def dimensionValues=dimensions.collect{params[it]}

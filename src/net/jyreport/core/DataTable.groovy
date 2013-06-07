@@ -39,21 +39,21 @@ class DataTable {
 		if(rowModel==null){
 			return null
 		}
-        
-        def vd=getValueDimension()
-        if(rowModel.containsKey(vd)){
-            return rowModel
-        }
+		
+		def vd=getValueDimension()
+		if(rowModel.containsKey(vd)){
+			return rowModel
+		}
 		
 		def dadf=getDimensionAtDataField()
 		def dfm=getDataFieldsMap()
 		if(dadf && dfm){
 			//flatten ...
 			def models=[]
-            dfm.each{headValue,fieldName->
-                if(!rowModel.containsKey(fieldName)){
-                    return
-                }
+			dfm.each{headValue,fieldName->
+				if(!rowModel.containsKey(fieldName)){
+					return
+				}
 				def flatModel=rowModel.clone()
 				flatModel[dadf]=headValue
 				def value=flatModel.remove(fieldName)

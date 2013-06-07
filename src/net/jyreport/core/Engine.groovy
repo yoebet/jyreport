@@ -11,7 +11,7 @@ import net.jyreport.core.resultbuilder.*
  */
 class Engine {
 	
-    def dataSource
+	def dataSource
 	
 	def config
 	
@@ -33,17 +33,17 @@ class Engine {
 	
 	
 	//TODO: ReportDataCache, HeadsCache
-    
-    def init(){
+	
+	def init(){
 		def defaultConfig=new ConfigSlurper().parse(Config)
 		if(config==null){
 			config=defaultConfig
 		}else{
 			config=defaultConfig.merge(config as ConfigObject)
 		}
-        if(dataSource){
+		if(dataSource){
 			config.dataSource=dataSource
-        }else{
+		}else{
 			println "no dataSource!"
 		}
 		
@@ -58,7 +58,7 @@ class Engine {
 		resultCachesMap=buildComponentsMap(config.resultCaches)
 		
 		config=config.asImmutable()
-    }
+	}
 	
 	protected buildComponentsMap(componentsConfig){
 		
@@ -94,11 +94,11 @@ class Engine {
 		def processor=config.reportProcessor.newInstance()
 		processor.config=config
 		processor.report=report
-        use(ExceptionCategory){
-            return processor.buildReport()
-        }
+		use(ExceptionCategory){
+			return processor.buildReport()
+		}
 	}
-    
+	
 	def fetchResultFromCache(String type,String reportCode, Map<String,Object> context){
 		
 		if(resultCacheExpired || !resultCacheEnabled){
@@ -114,14 +114,14 @@ class Engine {
 			}
 		}
 	}
-    
+	
 	def dropResultFromCache(String type,String reportCode, Map<String,Object> context){
 		
 		def cacheName=resultCacheEvaluator.call(type,reportCode,context)
 		def resultCache=resultCachesMap[cacheName]
 		resultCache.drop(type,reportCode,context)
 	}
-    
+	
 	protected cacheReportResult(String type,String reportCode, Map<String,Object> context, def result){
 		
 		use(ExceptionCategory){
@@ -134,7 +134,7 @@ class Engine {
 			}
 		}
 	}
-    
+	
 	def buildReportResult(String type, ReportData reportData, Map<String,Object> context, rebuild=false){
 		
 		def resultBuilder=resultBuildersMap[type]
@@ -144,13 +144,13 @@ class Engine {
 		}
 		return result
 	}
-    
+	
 	def buildReportResult(String type, Report report, Map<String,Object> context, rebuild=false){
 		
 		ReportData reportData=buildReport(report,context)
 		return buildReportResult(type,reportData,context)
 	}
-    
+	
 	def buildReportResult(String type, String reportCode, Map<String,Object> context, rebuild=false){
 		
 		if(!rebuild){

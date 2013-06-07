@@ -142,10 +142,10 @@ class HeadGrid extends Grid {
 	Dimension getDimension(){
 		head.dimension
 	}
-    
-    def getModel(){
-        head.model
-    }
+	
+	def getModel(){
+		head.model
+	}
 	
 	String toString(){
 		text

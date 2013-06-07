@@ -10,7 +10,7 @@ class DateSeriesProcessor extends AbstractHeadProcessor {
 	
 	List<Head> expand(){
 		
-        setDimensionAttributes()
+		setDimensionAttributes()
 		
 		def baseDate
 		def params=headCriteria?.params
@@ -22,10 +22,10 @@ class DateSeriesProcessor extends AbstractHeadProcessor {
 			baseDate.clearTime()
 		}
 		int maxDays=dimension.maxDays
-        
-        List<Date> models=[]
 		
-        use([DateCategory,CalendarCategory]){
+		List<Date> models=[]
+		
+		use([DateCategory,CalendarCategory]){
 			def currentDate=baseDate
 			if(dimension.fromNextDay){
 				currentDate++

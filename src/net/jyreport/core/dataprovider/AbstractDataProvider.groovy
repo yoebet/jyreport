@@ -43,7 +43,7 @@ abstract class AbstractDataProvider implements DataProvider {
 	abstract TableDataModel selectData()
 
 	void close(){
-    }
+	}
 	
 }
 

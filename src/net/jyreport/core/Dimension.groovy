@@ -118,7 +118,7 @@ class Dimension implements Serializable,Cloneable {
 	String tableName(){
 		getTableName() ?: getName()
 	}
-    
+	
 	List<Head> staticHeads(){
 		List<Head> shs=getStaticHeads()
 		if(shs==null){
