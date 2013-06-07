@@ -25,7 +25,7 @@ class SelectorBuilder extends BaseBuilder {
 		}
 	}
 	
-    protected Object doCreateNode(Object name, Map attributes, Object value){
+	protected Object doCreateNode(Object name, Map attributes, Object value){
 		if(current instanceof BasicSelector){
 			if(name=='location' && value==null && attributes!=null){
 				current.location=attributes
@@ -33,5 +33,5 @@ class SelectorBuilder extends BaseBuilder {
 			}
 		}
 		setProperty(current,name,value,attributes)
-    }
+	}
 }

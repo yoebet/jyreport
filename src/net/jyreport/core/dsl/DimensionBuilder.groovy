@@ -16,7 +16,7 @@ class DimensionBuilder extends BaseBuilder {
 		setCurrent(dimension)
 	}
 
-    protected void setClosureDelegate(Closure closure, Object node) {
+	protected void setClosureDelegate(Closure closure, Object node) {
 		def del
 		if(node instanceof Head){
 			del=new HeadBuilder(node)
@@ -30,7 +30,7 @@ class DimensionBuilder extends BaseBuilder {
 		del.nameRegistrar=this.nameRegistrar
 		closure.resolveStrategy=Closure.DELEGATE_FIRST
 		closure.setDelegate(del)
-    }
+	}
 	
 	void paramsCallback(Closure callback){
 		if(current==dimension){
@@ -75,7 +75,7 @@ class DimensionBuilder extends BaseBuilder {
 	}
 	
 	
-    protected Object doCreateNode(Object name, Map attributes, Object value){
+	protected Object doCreateNode(Object name, Map attributes, Object value){
 		def node=name
 		if(current=='staticHeads'){
 			if(name!='head'){
@@ -176,5 +176,5 @@ class DimensionBuilder extends BaseBuilder {
 			dimension.headModels=[]
 		}
 		node
-    }
+	}
 }

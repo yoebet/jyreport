@@ -18,7 +18,7 @@ class DataCriteriaBuilder extends BaseBuilder {
 		[pager:'paginate']
 	}
 	
-    protected Object doCreateNode(Object name, Map attributes, Object value){
+	protected Object doCreateNode(Object name, Map attributes, Object value){
 		def node=name
 		switch(current){
 			case null:
@@ -116,5 +116,5 @@ class DataCriteriaBuilder extends BaseBuilder {
 			logUnknownName(name,value)
 		}
 		node
-    }
+	}
 }

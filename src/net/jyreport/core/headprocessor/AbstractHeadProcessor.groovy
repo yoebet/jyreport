@@ -44,7 +44,7 @@ abstract class AbstractHeadProcessor implements HeadProcessor {
 	abstract List<Head> expand()
 
 	void close(){
-    }
+	}
 	
 }
 

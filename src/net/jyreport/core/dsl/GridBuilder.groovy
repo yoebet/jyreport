@@ -51,7 +51,7 @@ class GridBuilder extends BaseBuilder {
 		formula(f)
 	}
 	
-    protected Object doCreateNode(Object name, Map attributes, Object value){
+	protected Object doCreateNode(Object name, Map attributes, Object value){
 		if(current=='params'){
 			grid.params[name]=value
 			return name
@@ -78,5 +78,5 @@ class GridBuilder extends BaseBuilder {
 		}
 		setProperty(grid,name,value,attributes)
 		name
-    }
+	}
 }

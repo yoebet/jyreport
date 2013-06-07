@@ -16,19 +16,19 @@ class DSLReportLoader implements ReportLoader {
 	def dslWrapper
 	
 	def charset='UTF8'
-    
+	
 	Map<String,String> reportWrapperCache=[:]
 	
 	private def fileBaseDir
 	
 	def initialize(){
-        fileBaseDir=fileBaseDir ?: ''
+		fileBaseDir=fileBaseDir ?: ''
 		fileBaseDir=fileBaseDir.replace('\\','/')
 		if(fileBaseDir && !fileBaseDir.endsWith('/')){
 			fileBaseDir+='/'
 		}
 	}
-    
+	
 	Report loadReport(String reportCode){
 		
 		String scriptText
@@ -54,10 +54,10 @@ class DSLReportLoader implements ReportLoader {
 		return report
 	}
 	
-    private String getFileText(path){
-        def rdContent
+	private String getFileText(path){
+		def rdContent
 		if(path ==~ /^([A-Za-z]\:)?\/.*/){
-            rdContent = new File(path).text
+			rdContent = new File(path).text
 		}else{
 			def is=DSLReportLoader.class.getResourceAsStream("/${path}")
 			if(is!=null){
@@ -66,15 +66,15 @@ class DSLReportLoader implements ReportLoader {
 				rdContent=new File(path).getText(charset)
 			}
 		}
-        return rdContent
-    }
+		return rdContent
+	}
 	
 //	def textEngine=new SimpleTemplateEngine()
 	
 	protected String evalDefinitionText(rdWrapperText,content){
-//        def template = textEngine.createTemplate(rdWrapperText)
-//        template.make([context:context, content:content])
-//        template.toString()
+//		def template = textEngine.createTemplate(rdWrapperText)
+//		template.make([context:context, content:content])
+//		template.toString()
 		
 		rdWrapperText.replace('$content',content)
 	}

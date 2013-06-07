@@ -15,7 +15,7 @@ class HeadBuilder extends BaseBuilder {
 		setCurrent(head)
 	}
 
-    protected void setClosureDelegate(Closure closure, Object node) {
+	protected void setClosureDelegate(Closure closure, Object node) {
 		closure.resolveStrategy=Closure.DELEGATE_FIRST
 		if(node instanceof Grid){
 			def gb=new GridBuilder(node)
@@ -24,7 +24,7 @@ class HeadBuilder extends BaseBuilder {
 		}else{
 			closure.setDelegate(this)
 		}
-    }
+	}
 	
 	void formula(Closure f){
 		if(current==head){
@@ -58,7 +58,7 @@ class HeadBuilder extends BaseBuilder {
 		}
 	}
 	
-    protected Object doCreateNode(Object name, Map attributes, Object value){
+	protected Object doCreateNode(Object name, Map attributes, Object value){
 		def tGrid=head.templateGrid
 		if(name=='grid' || name=='templateGrid'){
 			if(value==null){
@@ -92,5 +92,5 @@ class HeadBuilder extends BaseBuilder {
 			setProperty(head,name,value,attributes)
 		}
 		name
-    }
+	}
 }

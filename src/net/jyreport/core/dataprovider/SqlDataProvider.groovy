@@ -18,9 +18,9 @@ class SqlDataProvider extends AbstractDataProvider {
 	
 	def initialize(){
 		super.initialize()
-        if(sql==null && config.dataSource){
-		    sql=new Sql(config.dataSource)
-        }
+		if(sql==null && config.dataSource){
+			sql=new Sql(config.dataSource)
+		}
 	}
 	
 	protected parseCustomQuery(query,params){
@@ -83,7 +83,7 @@ class SqlDataProvider extends AbstractDataProvider {
 		
 		def sqlString='select ' << (fields ?: '*') << '\n'
 		sqlString << ' from ' << tableName << '\n'
-        
+		
 		def paramList=[]
 		def conditions=processParams(params,paramList,dimOrPropToField)
 		def orderString=processOrders(orders,dimOrPropToField)
@@ -154,7 +154,7 @@ class SqlDataProvider extends AbstractDataProvider {
 				models << result
 			}
 		}
-        println "${sqlString} -> ${paramList}"
+		println "${sqlString} -> ${paramList}"
 		if(pagination==null){
 			sql.eachRow(sqlString, paramList, rowHander)
 		}else{
@@ -199,12 +199,12 @@ class SqlDataProvider extends AbstractDataProvider {
 		transParam(paramList)
 		
 		def allDimensions=dataTable.allDimensions
-        println "all_dimensions: $allDimensions"
+		println "all_dimensions: $allDimensions"
 		Map<String,Object> implitParams=dataRequest.params.findAll{
 			!(it.value instanceof List) && allDimensions.contains(it.key)
 		}
 		List<String> dataDimensions=allDimensions-implitParams.keySet()
-        println "data_dimensions: $dataDimensions"
+		println "data_dimensions: $dataDimensions"
 		
 		List<Object> models=doSelect(sqlString,paramList,dataDimensions)
 		

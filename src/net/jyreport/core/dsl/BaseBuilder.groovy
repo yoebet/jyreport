@@ -13,13 +13,13 @@ class BaseBuilder extends BuilderSupport {
 		[:]
 	}
 	
-    protected Object getName(String methodName) {
+	protected Object getName(String methodName) {
 		def nm=getNameMapping()
 		if(nm==null){
 			return methodName
 		}
 		nm[methodName] ?: methodName
-    }
+	}
 	
 	protected parseDate(ds){
 		if(ds ==~ /\d+/){
@@ -29,33 +29,33 @@ class BaseBuilder extends BuilderSupport {
 		}
 	}
 	
-    protected void setParent(Object parent, Object child){
-    }
+	protected void setParent(Object parent, Object child){
+	}
 	
-    protected Object createNode(Object name){
+	protected Object createNode(Object name){
 		createNode(name,null,null)
-    }
+	}
 	
-    protected Object createNode(Object name, Object value){
+	protected Object createNode(Object name, Object value){
 		createNode(name,null,value)
-    }
+	}
 	
-    protected Object createNode(Object name, Map attributes){
+	protected Object createNode(Object name, Map attributes){
 		createNode(name,attributes,null)
-    }
+	}
 	
-    protected Object createNode(Object name, Map attributes, Object value){
+	protected Object createNode(Object name, Map attributes, Object value){
 		if(value instanceof ClosureWrapper){
 			value=value?.closure
 		}
 		doCreateNode(name,attributes,value)
-    }
+	}
 	
-    protected void nodeCompleted(Object parent, Object node) {
-    }
+	protected void nodeCompleted(Object parent, Object node) {
+	}
 	
 	
-    protected boolean setProperty(Object target,Object name, Object value, Map attributes){
+	protected boolean setProperty(Object target,Object name, Object value, Map attributes){
 		if(target==null){
 			return false
 		}
@@ -72,7 +72,7 @@ class BaseBuilder extends BuilderSupport {
 			setProperties(target,attributes)
 		}
 		return hasProperty
-    }
+	}
 	
 	protected void setProperties(Object target,Map attributes){
 		if(target==null||attributes==null){

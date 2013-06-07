@@ -65,7 +65,7 @@ class TextResultBuilder implements ResultBuilder {
 			}
 			rhs.reverseEach{
 				if(it.row==firstGrid.row){
-					def ht='    '*it.layer+it.text
+					def ht='	'*it.layer+it.text
 					result <<  ht.padRight(rhWidth-1-zhcount(ht))
 				}else{
 					result <<  ' '*(rhWidth-1)

@@ -18,7 +18,7 @@ class DataRequestBuilder extends DataCriteriaBuilder {
 		this.dataRequest=dataRequest
 	}
 
-    protected void setClosureDelegate(Closure closure, Object node) {
+	protected void setClosureDelegate(Closure closure, Object node) {
 		def del
 		if(node instanceof DataTable){
 			del=new DataTableBuilder(node)
@@ -28,9 +28,9 @@ class DataRequestBuilder extends DataCriteriaBuilder {
 		del.nameRegistrar=this.nameRegistrar
 		closure.resolveStrategy=Closure.DELEGATE_FIRST
 		closure.setDelegate(del)
-    }
+	}
 	
-    protected Object doCreateNode(Object name, Map attributes, Object value){
+	protected Object doCreateNode(Object name, Map attributes, Object value){
 		if(name=='name'){
 			if(value instanceof String){
 				dataRequest.name=value
@@ -64,5 +64,5 @@ class DataRequestBuilder extends DataCriteriaBuilder {
 		}
 		
 		return super.doCreateNode(name,attributes,value)
-    }
+	}
 }

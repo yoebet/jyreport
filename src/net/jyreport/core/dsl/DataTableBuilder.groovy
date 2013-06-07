@@ -14,7 +14,7 @@ class DataTableBuilder extends BaseBuilder {
 		setCurrent(dataTable)
 	}
 
-    protected void setClosureDelegate(Closure closure, Object node) {
+	protected void setClosureDelegate(Closure closure, Object node) {
 		def del
 		if(node instanceof NameStrategy){
 			del=new NameStrategyBuilder(node)
@@ -24,9 +24,9 @@ class DataTableBuilder extends BaseBuilder {
 		del.nameRegistrar=this.nameRegistrar
 		closure.resolveStrategy=Closure.DELEGATE_FIRST
 		closure.setDelegate(del)
-    }
+	}
 	
-    protected Object doCreateNode(Object name, Map attributes, Object value){
+	protected Object doCreateNode(Object name, Map attributes, Object value){
 		
 		if(name=='nameStrategy'){
 			def nameStrategy=parseNameStrategy(value,attributes)
@@ -49,5 +49,5 @@ class DataTableBuilder extends BaseBuilder {
 		
 		setProperty(dataTable,name,value,attributes)
 		return name
-    }
+	}
 }

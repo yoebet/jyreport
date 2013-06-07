@@ -14,7 +14,7 @@ abstract class FileResultCache implements ResultCache {
 	def cacheNameGenerator
 	
 	def initialize(){
-        cacheBaseDir=cacheBaseDir ?: ''
+		cacheBaseDir=cacheBaseDir ?: ''
 		cacheBaseDir=cacheBaseDir.replace('\\','/')
 		if(cacheBaseDir && !cacheBaseDir.endsWith('/')){
 			cacheBaseDir+='/'

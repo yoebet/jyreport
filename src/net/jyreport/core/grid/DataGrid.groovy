@@ -206,9 +206,9 @@ class DataGrid extends Grid {
 	DataGrid getRight(){
 		cr(1)
 	}
-    
-    List<DataGrid> thisRowGrids(Closure condition=null){
-        def grids=reportData.rowsGrid(row)
+	
+	List<DataGrid> thisRowGrids(Closure condition=null){
+		def grids=reportData.rowsGrid(row)
 		if(condition==null){
 			return grids
 		}
@@ -217,10 +217,10 @@ class DataGrid extends Grid {
 			condition.delegate=it
 			condition.call()
 		}
-    }
-    
-    List<DataGrid> thisColGrids(Closure condition=null){
-        def grids=reportData.colsGrid(col)
+	}
+	
+	List<DataGrid> thisColGrids(Closure condition=null){
+		def grids=reportData.colsGrid(col)
 		if(condition==null){
 			return grids
 		}
@@ -229,8 +229,8 @@ class DataGrid extends Grid {
 			condition.delegate=it
 			condition.call()
 		}
-    }
-    
+	}
+	
 
 	def v(extra=null){
 		def aparams=extra? (params+extra) : params
@@ -238,9 +238,9 @@ class DataGrid extends Grid {
 	}
 	
 	def v0(aparams,aggregator=null){
-        if(aggregator==null){
-            aggregator=this.aggregator
-        }
+		if(aggregator==null){
+			aggregator=this.aggregator
+		}
 		def res=reportData.fetchValue(aparams,aggregator)
 		if(res!=null){
 			return res
@@ -250,7 +250,7 @@ class DataGrid extends Grid {
 		}else{
 			0
 		}
-    }
+	}
 
 	//获取兄弟单元格
 	def getSiblings(){
