@@ -22,10 +22,7 @@ dataRequest{
 dataRequest{
         table 'repriceRate'
         fields 'item,balance,rpid,currency'
-        params {
-            date 'context[]'
-            staticModel 'context[]'
-        }
+        contextParams (['date','staticModel'])
 }
 
 dataRequest ManualDataRequest

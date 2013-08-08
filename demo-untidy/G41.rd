@@ -14,10 +14,7 @@ dataRequest {
     table 'gl'
     fields 'item,currency,sum(endingBalance) endingBalance,sum(debitBalance) debitBalance,sum(creditBalance) creditBalance'
     groupFields 'item,currency'
-    params {
-        date 'context[]'
-        currency 'context[]'
-    }    
+    contextParams (['date','currency'])
 }
 
 dataRequest{

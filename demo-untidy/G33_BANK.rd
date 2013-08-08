@@ -23,11 +23,7 @@ dataRequest{
         table 'repriceRate'
         fields 'item,currency,sum(balance) balance,rpid'
         groupFields 'item,rpid,currency'
-        params {
-            date 'context[]'
-            staticModel 'context[]'
-            organ 'context[]'
-        }
+        contextParams (['date','organ','staticModel'])
 }
 dataRequest{
         table 'repriceRate',{

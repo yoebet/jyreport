@@ -23,11 +23,7 @@ dataRequest{
 dataRequest{
         table 'repriceRate'
         fields 'item,balance,rpid'
-        params {
-            date 'context[]'
-            currency 'context[]'
-            staticModel 'context[]'
-        }
+        contextParams (['date','currency','staticModel'])
 }
 
 dataGrids{
