@@ -1,22 +1,33 @@
-jyReport（荐源报表）
+jy-report（荐源报表）
 
-a report engine perfect fit for programmers.
-
--
-
-leverage groovy language;
-
-DSL support;
-
-strong formula/function support;
-
-powerful cross-grids calculating;
-
-highly flexible, extensible...
+一个报表引擎，完美支持多维报表，表内运算
 
 -
 
+使用groovy语言；
 
-IN PROGRESS...
+DSL支持，报表定义即代码，非常简洁；
 
-（正在整理Demo，文档）
+适应任意关系数据库模型，包括事务型、ODS、DM、DW；
+
+支持多数据源、数据表；
+
+重点支持交叉报表、多维报表，支持任意多维；
+
+丰富的单元格selector，在所选的单元格上应用公式等；
+
+强大的单元格引用、导航、表内计算支持；
+
+可把单元格当数值，直接应用于公式中；
+
+方便的自定义函数，很强的灵活性、扩展性；
+
+支持报表缓存，包括报表定义缓存、结果报表缓存；
+
+...
+
+-
+
+非常适合于表内计算关系复杂的报表（比如很多金融报表）。
+
+目前专注于核心部分，在线报表定义、报表展示尚未包含进来。
